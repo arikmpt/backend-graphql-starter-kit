@@ -1,0 +1,19 @@
+overwrite: true
+schema: "schema"
+documents: null
+generates:
+  src/graphql/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+    config:
+      contextType: ./context#Context
+      rootValueType: ./context#RootDocument
+      noSchemaStitching: true
+      skipTypename: true
+      preResolveTypes: true
+      typesPrefix: GraphQL
+      mappers:
+          User: ../document#User
+      scalars:
+          DateTime: Date

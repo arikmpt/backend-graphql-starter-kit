@@ -1,0 +1,5 @@
+node_modules
+build
+jest.config.ts
+src/__test__
+src/graphql/graphql.ts

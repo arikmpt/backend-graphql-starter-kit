@@ -1,0 +1,52 @@
+scalar JSON
+scalar JSONObject
+scalar ObjectID
+scalar Date
+
+type Query {
+    checkHealth: CheckHealthResponse!
+    getUser: User!
+}
+
+type Mutation {
+    registerUser(req: UserRegisterInput!): User!,
+    login(req: UserLoginInput!): LoginResponse!
+}
+
+type CheckHealthResponse {
+    code: Int!
+    status: String!
+    message: String!
+}
+
+input UserRegisterInput {
+    username: String!
+    email: String!
+    password: String!
+    confirmPassword: String!
+    firstName: String!
+    lastName: String!
+    phone: String
+}
+
+input UserLoginInput {
+    username: String
+    email: String
+    password: String
+}
+
+type User {
+    id: ObjectID!
+    username: String!
+    email: String!
+    firstName: String!
+    lastName: String!
+    fullName: String!
+    phone: String
+    createdAt: Date!
+    updatedAt: Date!
+}
+
+type LoginResponse {
+    token: String!
+}
